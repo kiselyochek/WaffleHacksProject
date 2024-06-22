@@ -1,42 +1,136 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+html, body {
+  margin: 0; 
+  height: 100%; 
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+html {
+  background: url("https://i.imgur.com/XfkbFlu.jpg") center no-repeat;
+  background-size: cover;
+}
+
+body {
+  display: flex;
+  align-items: top;
+  justify-content: center;
+}
+
+h1 {
+  background: #63B6BB;
+  color: white;
+  margin-top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 121.5px;
+}
+
+
+.login {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+  justify-content: center;
+  background: #F5C5C5;
+  padding: 3rem;
+  margin-top: 20%;
+  border-radius: 10px;
+  width: 400px;  /* Increased width */
+  max-width: 100%;
+}
+
+input {
+  padding: 1em;
+  margin-bottom: 2em;
+  border: none;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  border-radius: 5000px;
+  backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  background-color: #fff;
+  color:black;
+  font-family: Treifany;
+  font-weight: 500;
+
+  
+  &:hover {
+    box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
   }
-  to {
-    transform: rotate(360deg);
+  
+  &[type="email"],
+  &[type="password"] {
+    
+    &:focus {
+      box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+    }
+  }}
+
+.playbtn {
+  background: #FB0404;
+  color: white;
+  padding: 1em;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5000px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  
+  &:hover {
+    box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+    color:#fff;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+img.music-toggle-active {
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 
+  100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+  100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+  100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+  } 
+}
+
+.music-toggle {
+  width: 6.5%;
+  position: fixed;
+  bottom: 20px;  
+  right: 20px;  
+  margin-right: 0;
+  display: flex;
+  background: #F5C5C5;
+  padding: 1rem;
+  border-radius: 5000px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  
+  &:hover {
+    box-shadow: 1px 1px 20px 8px rgba(0,0,0,0.2);
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

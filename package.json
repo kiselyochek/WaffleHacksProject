@@ -2,7 +2,6 @@
   "name": "-wafflehacksproject",
   "private": true,
   "version": "0.0.0",
-  
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,7 +13,9 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1",
+    "sakura-js": "^1.1.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
