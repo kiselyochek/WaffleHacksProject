@@ -71,9 +71,12 @@ Install required packages:
 
 #### Run the application
 
-```npm run build
+```
+   npm run build
    npm run dev
-   python main.py```
+   python main.py
+
+```
 
 Go to 127.0.0.1:5000 to view!
 
