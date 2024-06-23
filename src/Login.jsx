@@ -31,7 +31,7 @@ const Login = () => {
               setMessage('An error occurred. Please try again later.');
               console.error('Login error:', error);
           }
-      };
+      }
     
     }
 
