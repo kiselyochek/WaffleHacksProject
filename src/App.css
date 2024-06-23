@@ -49,6 +49,21 @@ h1 {
   max-width: 100%;
 }
 
+.login p {
+  text-align: center;
+}
+
+.register {
+  margin-bottom: 10rem;
+}
+
+.register-btn {
+  &:hover {
+    color:#fb8484;
+  }
+
+}
+
 input {
   padding: 1em;
   margin-bottom: 2em;

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 const Login = () => {
@@ -27,7 +27,7 @@ const Login = () => {
               setMessage('An error occurred. Please try again later.');
               console.error('Login error:', error);
           }
-      };
+      }
     
     }
 
@@ -38,7 +38,7 @@ const Login = () => {
           <input type="text" placeholder="Username" />
           <input type="text" placeholder="Password" />
           <Link className="playbtn" to="/dashboard">Play</Link>
-          <p>Don't have an account? <Link to="/register">Register</Link></p>
+          <p>Do not have an account? <Link to="/register" className="register-btn">Register</Link></p>
         </form>
         </div>
     );
