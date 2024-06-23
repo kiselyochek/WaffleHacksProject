@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
       e.preventDefault();
@@ -18,6 +21,7 @@ const Login = () => {
 
           if (response.status === 200) {
               setMessage(response.data.message);
+              navigate('/dashboard');
                 
           }
       } catch (error) {
@@ -36,10 +40,10 @@ const Login = () => {
         <h1>Name</h1>
         {message && <p>{message}</p>}
         <form className="login" onSubmit={handleSubmit}>
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
+          <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
           <button type="submit">Login</button>
-          <p>Don't have an account? <Link to="/register">Register</Link></p>
+          <p>Do not have an account? <Link to="/register" className="register-btn">Register</Link></p>
         </form>
         </div>
     );

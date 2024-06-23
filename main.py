@@ -29,20 +29,8 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
-@app.route('/', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        data = request.json
-
-        username = data.get('username')
-        password = data.get('password')
-
-        user = User.query.filter_by(username=username).first()
-
-        if not user or not user.check_password(password):
-            return jsonify({'error': 'Invalid username or password'}), 401
-
-        return jsonify({'message': 'Login successful'}), 200
+@app.route('/')
+def index():
     return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/register', methods=['POST'])
@@ -57,7 +45,6 @@ def register():
     if password != confirmPassword:
         return jsonify({'error': 'Passwords do not match'}), 400
 
-
     existing_user = User.query.filter_by(username=username).first()
     if existing_user:
         return jsonify({'error': 'Username already exists'}), 400
@@ -71,8 +58,23 @@ def register():
     db.session.add(new_user)
     db.session.commit()
 
-    return redirect('/')
+    return jsonify({'message': 'Registration successful'}), 201
 
+@app.route('/', methods=['POST'])
+def login():
+    data = request.json
+
+    username = data.get('username')
+    password = data.get('password')
+
+    user = User.query.filter_by(username=username).first()
+
+    print(user)
+    
+    if not user or not user.check_password(password):
+        return jsonify({'error': 'Invalid username or password'}), 401
+
+    return jsonify({'message': 'Login successful'}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
