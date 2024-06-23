@@ -42,7 +42,7 @@ function App() {
         <img 
           className={click ? "music-toggle music-toggle-active" : "music-toggle music-toggle-inactive"} 
           onClick={handleClick} 
-          src={click ? "https://i.imgur.com/LMvfMMV.png" : "https://i.imgur.com/DDPHQIo.png"} 
+          src={click ? "https://cdn4.iconfinder.com/data/icons/game-interface-outline/100/objects-19-512.png" : "https://cdn4.iconfinder.com/data/icons/game-interface-outline/100/objects-26-512.png"} 
           alt="Music Toggle"
         />
         </BrowserRouter>
