@@ -8,6 +8,7 @@ const Login = () => {
           <input type="text" placeholder="Username" />
           <input type="text" placeholder="Password" />
           <Link className="playbtn" to="/dashboard">Play</Link>
+          <p>Don't have an account? <Link to="/register">Register</Link></p>
         </form>
         </div>
     );

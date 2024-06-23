@@ -8,6 +8,7 @@ import Planner from "./Planner";
 import Tracker from "./Tracker";
 import Reminder from "./Reminder";
 import Community from "./Community";
+import Register from "./Register";
 import bgm from "./assets/bgm.mp3";
 import Sound from 'react-sound';
 import './App.css';
@@ -23,6 +24,7 @@ function App() {
       <div>
         <BrowserRouter>
         <Routes>
+          <Route path="/register" element={<Register />} /> 
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Login />} />
           <Route path="/journal" element={<Journal />} />
