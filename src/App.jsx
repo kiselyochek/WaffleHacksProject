@@ -8,11 +8,16 @@ import Planner from "./Planner";
 import Tracker from "./Tracker";
 import Reminder from "./Reminder";
 import Community from "./Community";
+import bgm from "./assets/bgm.mp3";
+import Sound from 'react-sound';
 import './App.css';
 
 function App() {
   const [click, setClick] = useState(true);
-  const handleClick = () => setClick(!click);
+
+  const handleClick = () => {
+    setClick(!click);
+  }
 
   return (
       <div>
@@ -27,6 +32,11 @@ function App() {
           <Route path="/reminder" element={<Reminder />} />
           <Route path="/community" element={<Community />} />
         </Routes>
+        <Sound
+          url={bgm}
+          playStatus={click ? Sound.status.PLAYING : Sound.status.PAUSED}
+          loop={true}
+        />
         <img 
           className={click ? "music-toggle music-toggle-active" : "music-toggle music-toggle-inactive"} 
           onClick={handleClick} 
