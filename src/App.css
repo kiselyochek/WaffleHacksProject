@@ -134,3 +134,80 @@ img.music-toggle-active {
     box-shadow: 1px 1px 20px 8px rgba(0,0,0,0.2);
   }
 }
+
+ul {
+  margin-top: -25%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-areas: 
+    "journal breathing planner"
+    "tracker quotes quotes"
+    "community community community";
+  gap: 1rem;
+  cursor: pointer;
+}
+
+li {
+  background: #F5C5C5;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+li:hover {
+  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+}
+
+a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journal {
+  grid-area: journal;
+}
+
+.journal-img {
+  width: 50%;
+  border-radius: 10px;
+}
+
+.breathing {
+  grid-area: breathing;
+}
+
+.breathing-img {
+  width: 50%;
+  border-radius: 10px;
+}
+
+.planner {
+  grid-area: planner;
+}
+
+.planner-img {
+  width: 30%;
+  border-radius: 10px;
+}
+
+.tracker {
+  grid-area: tracker;
+}
+
+.tracker-img {
+  width: 40%;
+  margin-bottom: 8%;
+  margin-top: 5%;
+  border-radius: 10px;
+}
+
+.reminder {
+  grid-area: quotes;
+}

@@ -2,6 +2,12 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from "./Dashboard";
 import Login from "./Login";
+import Journal from "./Journal";
+import Breathing from "./Breathing";
+import Planner from "./Planner";
+import Tracker from "./Tracker";
+import Reminder from "./Reminder";
+import Community from "./Community";
 import './App.css';
 
 function App() {
@@ -9,12 +15,17 @@ function App() {
   const handleClick = () => setClick(!click);
 
   return (
-    
       <div>
         <BrowserRouter>
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Login />} />
+          <Route path="/journal" element={<Journal />} />
+          <Route path="/breathe" element={<Breathing />} />
+          <Route path="/planner" element={<Planner />} />
+          <Route path="/tracker" element={<Tracker />} />
+          <Route path="/reminder" element={<Reminder />} />
+          <Route path="/community" element={<Community />} />
         </Routes>
         <img 
           className={click ? "music-toggle music-toggle-active" : "music-toggle music-toggle-inactive"} 
