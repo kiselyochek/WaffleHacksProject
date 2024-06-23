@@ -9,6 +9,7 @@ import Tracker from "./Tracker";
 import Reminder from "./Reminder";
 import Community from "./Community";
 import Register from "./Register";
+import Survey from "./Survey";
 import bgm from "./assets/bgm.mp3";
 import Sound from 'react-sound';
 import './App.css';
@@ -33,6 +34,7 @@ function App() {
           <Route path="/tracker" element={<Tracker />} />
           <Route path="/reminder" element={<Reminder />} />
           <Route path="/community" element={<Community />} />
+          <Route path="/survey" element={<Survey />} />
         </Routes>
         <Sound
           url={bgm}

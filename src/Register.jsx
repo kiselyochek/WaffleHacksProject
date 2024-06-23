@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+// import Survey from './Survey';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
@@ -51,7 +52,7 @@ const Register = () => {
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-                <button type="submit">Register</button>
+                <button type="submit" className="register-btn">Register</button>
             </form>
         </div>
     );
