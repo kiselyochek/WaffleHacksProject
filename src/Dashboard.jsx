@@ -20,6 +20,8 @@ const Dashboard = () => {
                     Reminders</Link></li>
                 <li><Link to="/community" className="community">
                     Highlight of the Day</Link></li>
+                <li><Link to="/chatbot" className="chatbot">
+                    Chat with the bot!</Link></li>
             </ul>
         </div>
     );

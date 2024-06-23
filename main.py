@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from flask_cors import CORS
-import requests
+from ai.model import train_intent_model, predict_intent, generate_response
 
 db_folder = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'databases')
 db_path = os.path.join(db_folder, 'app.db')
@@ -15,6 +15,9 @@ app = Flask(__name__, static_folder='dist', static_url_path='/', instance_relati
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 CORS(app)
+
+model, vectorizer, responses_dict = train_intent_model('ai/intents.json')
+
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -73,12 +76,24 @@ def login():
 
     user = User.query.filter_by(username=username).first()
 
-    print(user)
-    
     if not user or not user.check_password(password):
         return jsonify({'error': 'Invalid username or password'}), 401
 
     return jsonify({'message': 'Login successful'}), 200
 
+
+@app.route('/chatbot', methods=['POST'])
+def chatbot():
+    data = request.json
+    user_input = data.get('message', '')
+
+    if not user_input:
+        return jsonify({'response': "Hi! What's on your mind today? "})
+
+    intent = predict_intent(model, vectorizer, responses_dict, user_input)
+    response = generate_response(responses_dict, intent)
+    return jsonify({'message': response})
+
 if __name__ == '__main__':
     app.run(debug=True)
+

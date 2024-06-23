@@ -10,7 +10,9 @@ import Reminder from "./Reminder";
 import Community from "./Community";
 import Register from "./Register";
 import bgm from "./assets/bgm.mp3";
+import Survey from "./Survey";
 import Sound from 'react-sound';
+import Chatbot from './Chatbot';
 import './App.css';
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
         <BrowserRouter>
         <Routes>
           <Route path="/register" element={<Register />} /> 
+          <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Login />} />
           <Route path="/journal" element={<Journal />} />
@@ -33,6 +36,7 @@ function App() {
           <Route path="/tracker" element={<Tracker />} />
           <Route path="/reminder" element={<Reminder />} />
           <Route path="/community" element={<Community />} />
+          <Route path="/survey" element={<Survey/>} />
         </Routes>
         <Sound
           url={bgm}

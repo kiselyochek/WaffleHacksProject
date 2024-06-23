@@ -29,7 +29,7 @@ const Register = () => {
 
             if (response.status === 201) {
                 setMessage(response.data.message);
-                navigate('/');
+                navigate('/survey');
                 
             }
         } catch (error) {

@@ -328,3 +328,109 @@ textarea {
   display: flex;
   padding: 20%;
 }
+
+/* Survey */
+
+/* Main container for the quiz */
+.QuizContainer {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 2rem;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+/* Header section */
+.quizHeader h2 {
+  color: #ff6b6b;
+  text-align: center;
+}
+
+.PracticeDescription {
+  color: #555;
+  text-align: center;
+  margin-top: -10px;
+}
+
+/* Horizontal rule styling */
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+/* Question container */
+.PracticeQuestionContainer {
+  padding: 10px;
+  color: #333;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Option container */
+.option-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Radio button styling */
+.input-radio {
+  display: none;
+}
+
+/* Label for options */
+.option {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  margin: 10px 0;
+  padding: 10px 20px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option:hover {
+  background-color: #ffe4e4;
+  border-color: #ff6b6b;
+}
+
+.option:active {
+  background-color: #ff6b6b;
+  color: #fff;
+}
+
+/* Dot inside option label */
+.dot {
+  height: 16px;
+  width: 16px;
+  background-color: #ff6b6b;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 15px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+/* Show dot when radio is checked */
+.input-radio:checked + .option .dot {
+  opacity: 1;
+}
+
+.option span {
+  font-size: 16px;
+  color: #333;
+}
+
+.survey-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
