@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, flash, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
 db_folder = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'databases')
@@ -23,11 +23,26 @@ class User(db.Model):
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
 with app.app_context():
     db.create_all()
 
-@app.route('/')
-def index():
+@app.route('/', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        data = request.json
+
+        username = data.get('username')
+        password = data.get('password')
+
+        user = User.query.filter_by(username=username).first()
+
+        if not user or not user.check_password(password):
+            return jsonify({'error': 'Invalid username or password'}), 401
+
+        return jsonify({'message': 'Login successful'}), 200
     return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/register', methods=['POST'])
@@ -56,21 +71,8 @@ def register():
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify({'message': 'Registration successful'}), 201
+    return redirect('/')
 
-@app.route('/', methods=['POST'])
-def login():
-    data = request.json
-
-    username = data.get('username')
-    password = data.get('password')
-
-    user = User.query.filter_by(username=username).first()
-
-    if not user or not user.check_password(password):
-        return jsonify({'error': 'Invalid username or password'}), 401
-
-    return jsonify({'message': 'Login successful'}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)

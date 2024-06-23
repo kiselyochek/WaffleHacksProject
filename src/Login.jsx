@@ -11,7 +11,7 @@ const Login = () => {
       e.preventDefault();
 
       try {
-          const response = await axios.post('/login', {
+          const response = await axios.post('/', {
               username: username,
               password: password
           });
@@ -22,7 +22,7 @@ const Login = () => {
           }
       } catch (error) {
           if (error.response && error.response.status === 401) {
-              setMessage(error.response.data.error); // Set error message
+              setMessage(error.response.data.error); 
           } else {
               setMessage('An error occurred. Please try again later.');
               console.error('Login error:', error);
@@ -34,11 +34,12 @@ const Login = () => {
     return (
         <div>
         <h1>Name</h1>
+        {message && <p>{message}</p>}
         <form className="login" onSubmit={handleSubmit}>
           <input type="text" placeholder="Username" />
           <input type="text" placeholder="Password" />
           <Link className="playbtn" to="/dashboard">Play</Link>
-          <p>Do not have an account? <Link to="/register" className="register-btn">Register</Link></p>
+          <p>Don't have an account? <Link to="/register" className="register-btn">Register</Link></p>
         </form>
         </div>
     );
