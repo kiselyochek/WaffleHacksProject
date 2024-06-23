@@ -9,7 +9,7 @@ const Survey = () => {
     }
 
     return (
-        <div className="hr">
+        <div className="survey">
             <ul>
                 <li>
                 <Question 

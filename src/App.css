@@ -13,6 +13,8 @@ html, body {
 html {
   background: url("https://wallpapers-clan.com/wp-content/uploads/2024/02/anime-girl-on-window-enjoying-cherry-blossoms-desktop-wallpaper-preview.jpg") center no-repeat;
   background-size: cover;
+  /* background: url("https://i.imgur.com/XfkbFlu.jpg") center no-repeat; */
+  background-attachment: fixed;
 }
 
 body {
@@ -54,7 +56,8 @@ h1 {
 }
 
 .register {
-  margin-bottom: 10rem;
+  margin: 5rem 0rem 5rem 0rem;
+
 }
 
 .register-btn {
@@ -150,11 +153,10 @@ img.music-toggle-active {
   }
 }
 
-ul {
-  margin-top: -25%;
-  list-style: none;
+.features {
+  margin: 3% 3% 3% 3%;
   display: grid;
-  grid-template-columns: 33.3% 33.3% 33.3%;
+  /* grid-template-columns: 33.3% 33.3% 33.3%; */
   grid-template-areas: 
     "journal breathing planner"
     "tracker quotes quotes"
@@ -163,7 +165,7 @@ ul {
   cursor: pointer;
 }
 
-li {
+.feature {
   background: #F5C5C5;
   padding: 1rem;
   border-radius: 10px;
@@ -225,6 +227,10 @@ a {
 
 .reminder {
   grid-area: quotes;
+}
+
+.community {
+  grid-area: community;
 }
 
 .journal {
