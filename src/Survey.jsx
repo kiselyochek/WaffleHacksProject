@@ -1,6 +1,13 @@
 import Question from './Question';
+import { useNavigate } from 'react-router-dom';
 
 const Survey = () => {
+
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate('/dashboard');
+    }
+
     return (
         <div className="survey">
             <ul>
@@ -87,7 +94,7 @@ const Survey = () => {
             option4="Constantly"/>
                 </li>
 
-                <li className="survey-submit"><button>Submit</button></li>
+                <li className="survey-submit"><button onClick={handleClick}>Submit</button></li>
             </ul>
 
             

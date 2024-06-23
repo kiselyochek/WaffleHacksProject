@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import axios from 'axios';
-// import Survey from './Survey';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
@@ -31,6 +30,7 @@ const Register = () => {
             if (response.status === 201) {
                 setMessage(response.data.message);
                 navigate('/');
+                navigate('/survey');
                 
             }
         } catch (error) {
